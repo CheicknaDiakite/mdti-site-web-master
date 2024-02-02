@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <!-- Contact Start -->
+
+
+            <div class="container mt-4 mb-4 pt-4">
+                <div class="row  mt-4 mb-4">
+
+                    <div class="col-md-1"></div>
+
+                    <form  class="col-md-10 wow fadeIn"   method="post" action="" data-wow-delay=".5s">{% csrf_token %}
+
+                        <div class="p-5 row rounded contact-form">
+
+                             <div class="col-md-12 mb-4 h2 text-center text-white">
+                               Profile
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" {% if not modification %} disabled {% endif%} value="{{utilisateur.last_name}}" name="last_name" class="form-control border-0 py-3" placeholder="Nom" required>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" name="first_name" {% if not modification %} disabled {% endif%} value="{{utilisateur.first_name}}" class="form-control border-0 py-3" placeholder="Prénom" required>
+                            </div>
+
+
+
+                            <div class="col-md-6 mb-4">
+                                <input type="phone" name="numero" {% if not modification %} disabled {% endif%} value="{{utilisateur.numero}}" class="form-control border-0 py-3" placeholder="Numéro" required>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="email" name="email" {% if not modification %} disabled {% endif%} value="{{utilisateur.email}}" class="form-control border-0 py-3" placeholder="Email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,4}">
+                            </div>
+
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" name="quartier" {% if not modification %} disabled {% endif%} value="{{utilisateur.quartier}}" class="form-control border-0 py-3" placeholder="Ville / Quartier" required>
+                            </div>
+
+
+                            {% if not modification %}
+                            <div class="col-md-6 mb-4">
+                                <input type="text" name="quartier" {% if not modification %} disabled {% endif%} value="{{utilisateur.sexe}}" class="form-control border-0 py-3" placeholder="Ville / Quartier" required>
+                            </div>
+                            {% else %}
+
+                            <div class="col-md-6 mb-4">
+<!--                                <input type="text" class="form-control border-0 py-3" placeholder="Ville / Quartier">-->
+
+                                <select name="sexe" class="form-control border-0 py-3"  >
+                                    <option value="">Genre (choisir)</option>
+                                    <option value="Homme">Homme</option>
+                                    <option value="Femme">Femme</option>
+
+                                </select>
+                            </div>
+                            {% endif%}
+
+
+                            <div class="col-md-12 mb-4">
+                                <hr  class="form-control border-0 " />
+                            </div>
+
+
+                            <div class="col-md-6 mb-4">
+                                <label for="username" class="text-white">Nom d'utilisateur</label>
+                                <input type="text" id="username" name="username" disabled class="form-control border-0 py-3" value="{{utilisateur.username}}" required>
+                            </div>
+
+
+
+                             {% if not modification %}
+                                <div class="text-center mb-4">
+                                    <a href="{% url 'profile_modification' modification %}" class="btn bg-primary text-white py-3 px-5" >Modifier</a>
+
+                                </div>
+                            {% else %}
+                                <div class="text-center mb-4">
+                                    <input class="btn bg-primary text-white py-3 px-5" value="Enregister" name="enregister" type="submit"/>
+                                    <a href="{% url 'profile' %}" class="btn btn-danger" >Annluer</a>
+
+                                </div>
+                            {% endif %}
+
+
+
+                        </div>
+
+
+
+
+                    </form>
+
+
+                    <div class="col-md-1"></div>
+
+
+                </div>
+            </div>
+
+
+    <!-- Contact End -->
+
+
+{% endblock %}

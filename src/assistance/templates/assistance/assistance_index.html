@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+    <div class="container mt-4 mb-4 pt-4">
+                <div class="row  mt-4 mb-4">
+
+                    <div class="col-md-1"></div>
+
+
+                    <form  class="col-md-10  wow fadeIn"  method="post" data-wow-delay=".5s">
+                        {% csrf_token %}
+
+                        <div class="p-5 row rounded contact-form" >
+
+                             <div class="col-md-12 mb-4 h2 text-center text-white">
+                               Formulaire de prise de rendez-vous
+                            </div>
+
+                            {% if message %}
+                              <div class="alert alert-info">
+                                 {{message}}
+                              </div>
+                            {% endif %}
+                            <div class="col-md-6 mb-4">
+                                <input type="text" name="nom" class="form-control border-0 py-3" placeholder="Nom" required>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" name="prenom" class="form-control border-0 py-3" placeholder="Prénom" required>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="tel" name="numero" class="form-control border-0 py-3" placeholder="Numéro" required>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="email" name="email" class="form-control border-0 py-3" placeholder="Email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,4}">
+                            </div>
+
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" name="sujet" class="form-control border-0 py-3" placeholder="Sujet" required>
+                            </div>
+
+
+                            <div class="col-md-6 mb-4">
+                                <input id="date" name="date_rendezvous" type="datetime-local" class="form-control border-0 py-3" placeholder="Sujet">
+                                <small class="h6 text-white">Date du rendez-vous</small>
+                            </div>
+
+
+                            <div class="mb-4">
+                                <textarea class="w-100 form-control border-0 py-3" name="message" rows="6" cols="10" placeholder="Message" required></textarea>
+                            </div>
+
+
+
+
+                            <div class="text-center mb-4">
+                                <input class="btn bg-primary text-white py-3 px-5" value="Demandez" name="demander" type="submit"/>
+
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+                    </form>
+
+
+                    <div class="col-md-1"></div>
+
+
+                </div>
+            </div>
+
+{% endblock %}

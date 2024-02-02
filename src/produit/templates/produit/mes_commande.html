@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<<div class="container py-5 mb-5" >
+
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">Numero de la commande</th>
+            <th scope="col">Prix Unitaire</th>
+            <th scope="col">Quantié</th>
+            <th scope="col">Prix Totale</th>
+        </thead>
+        {% for commande in commandes %}
+        <tr>
+            <th scope="row"><a href="{% url 'commande_detail' commande.numero_de_commande %}">{{commande.numero_de_commande}}</a></th>
+            <td>{{commande.prix}}</td>
+            <td>{{commande.quantite}}</td>
+            <td>{{commande.prix_total}} CFA</td>
+        </tr>
+        {% endfor %}
+<!--        <tr>-->
+<!--            <th scope="row">2</th>-->
+<!--            <td>Jacob</td>-->
+<!--            <td>Thornton</td>-->
+
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">3</th>-->
+<!--            <td colspan="2">Larry the Bird</td>-->
+<!--            -->
+<!--        </tr>-->
+    </table>
+
+</div>
+
+
+{% endblock %}

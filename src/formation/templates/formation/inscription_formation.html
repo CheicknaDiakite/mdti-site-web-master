@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="container mt-4 mb-4 pt-4">
+                <div class="row  mt-4 mb-4">
+
+                    <div class="col-md-1"></div>
+
+                    <form  class="col-md-10  wow fadeIn"  method="post" data-wow-delay=".5s">
+                        {% csrf_token %}
+
+                        <div class="p-5 row rounded contact-form" >
+
+                             <div class="col-md-12 mb-4 h2 text-center text-white">
+                               Formulaire d'inscription
+                             </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" disabled class="form-control border-0 py-3" value="Titre : {{formation.titre}}" required>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" disabled class="form-control border-0 py-3" value="Date de fin : {{formation.date_debut}}" required>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <input type="text" disabled class="form-control border-0 py-3" value="Date du début : {{formation.date_fin}}" required>
+                            </div>
+
+
+
+
+
+                            <div class="mb-4">
+                                <textarea class="w-100 form-control border-0 py-3"  disabled name="message" rows="6" cols="10" placeholder="Message" required>{{formation.cour_description }}</textarea>
+                            </div>
+
+                            <div class="text-center mb-4">
+                                <input class="btn bg-primary text-white py-3 px-5" value="S'inscrire" name="s_inscrire" type="submit"/>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="col-md-1"></div>
+
+                </div>
+            </div>
+
+{% endblock %}

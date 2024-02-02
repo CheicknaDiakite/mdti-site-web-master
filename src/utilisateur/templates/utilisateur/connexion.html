@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <!-- Contact Start -->
+
+
+            <div class="container mt-4 mb-4 pt-4">
+                <div class="row  mt-4 mb-4">
+
+                    <div class="col-md-3"></div>
+
+
+                    <div  class="col-md-6 wow fadeIn" data-wow-delay=".5s">
+
+
+                        <form class="p-5 rounded contact-form" method="post"> {% csrf_token %}
+
+                             <div class="mb-4 h2 text-center text-white">
+                               Connexion
+                            </div>
+
+                            <div class="mb-4">
+                                <input type="text" name="username" class="form-control border-0 py-3" placeholder="Nom d'utilisateur" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <input type="password" name="password" class="form-control border-0 py-3" placeholder="Mot de passe" required>
+                            </div>
+
+
+
+                            <div class="text-center mb-4">
+                                <input class="btn bg-primary text-white py-3 px-5" value="Se connecter" name="se_connecter" type="submit"/>
+
+                            </div>
+
+
+                            <div class="container text-center text-white mt-4">
+
+                            Pas de compte ?
+                                <a href="{% url 'inscription' %}" class="btn btn-primary">Inscription</a>
+                            </div>
+
+                            <div class="container text-center text-white mt-4">
+
+                            Mot de passe oublier ?
+                                <a href="{% url 'mot_de_passe_oublier' %}" class="btn btn-primary">Ici</a>
+                            </div>
+
+
+                        </form>
+
+
+
+
+                    </div>
+
+
+                    <div class="col-md-3"></div>
+
+
+                </div>
+            </div>
+
+
+    <!-- Contact End -->
+
+
+{% endblock %}

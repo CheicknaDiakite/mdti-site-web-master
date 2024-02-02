@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="{{commande.produit.image_couverture.url}}" alt="">
+                </div>
+
+<!--                <div class="swiper-slide">-->
+<!--                  <img src="{% static 'assets/img/portfolio/portfolio-details-2.jpg' %}" alt="">-->
+<!--                </div>-->
+
+<!--                <div class="swiper-slide">-->
+<!--                  <img src="{% static 'assets/img/portfolio/portfolio-details-3.jpg' %}" alt="">-->
+<!--                </div>-->
+
+              </div>
+              <div class="swiper-pagination"></div>
+                 <div class="portfolio-description">
+              <h2>Message de la commande</h2>
+              <p>
+                {{commande.message }}
+              </p>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Informations</h3>
+              <ul>
+                <li><strong>Nom</strong>: <a href="{% url 'produit_detail' commande.produit.slug %}">{{commande.produit.nom}}</a></li>
+                <li><strong>Prix Unitaire</strong>: {{commande.prix}} CFA</li>
+                <li><strong>Quantite</strong>: {{commande.quantite}}</li>
+                <li><strong>Prix Total </strong>: {{commande.prix_total}} CFA</li>
+                {% if commande.traiter%}
+                  <li class="bg-success text-white text-center"><strong>Traiter </strong> <i class="fa fa-thumbs-up"></i></li>
+                {% else %}
+
+                  <li class="bg-danger text-white text-center"><strong>Non Traiter </strong> <i class="fa fa-thumbs-down"></i></li>
+                {% endif %}
+<!--                <a href="#" class="pb-3 text-light border-bottom border-primary"> Hamdallaye Rue 39 porte 472</a>-->
+
+              </ul>
+            </div>
+<!--            <div class="portfolio-description">-->
+<!--              <h2>Vous voulez cet article ?</h2>-->
+<!--              <p>-->
+<!--                <a href="" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Commendez ici</button></a>-->
+<!--              </p>-->
+<!--            </div>-->
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

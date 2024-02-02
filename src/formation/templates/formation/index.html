@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        
+    <!-- Blog Start -->
+    <div class="container-fluid blog py-5 mb-5">
+        <div class="container">
+            <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+                <h5 class="text-primary">Formation</h5>
+                <h1>Nos formation</h1>
+            </div>
+            <div>
+
+
+
+
+
+
+
+            </div>
+            <div class="row g-5 justify-content-center">
+                {% for formation in all_formation %}
+                <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".3s">
+                    <div class="blog-item position-relative bg-light rounded">
+                        <img src="{{formation.image.url}}" class="img-fluid w-100 rounded-top" alt="">
+
+                        <div class="blog-content text-center position-relative px-3" style="margin-top: -25px;">
+<!--                            <img src="img/admin.jpg" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">-->
+                            <h5 class="">{{formation.titre}}</h5>
+                            <span class="text-secondary">{{formation.date_debut}}</span>
+                            <p class="py-2">{{formation.cour_description | safe  | slice:":100" }}</p>
+                            <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
+                                  <a href="{% url 'formation_detaille' formation.slug %}" class="btn text-white">Détaille</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+        
+
+
+
+{% endblock %}

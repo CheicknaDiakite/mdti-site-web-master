@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="">
+                  <img src="{{ service.image.url }}" alt="">
+                </div>
+
+<!--                <div class="swiper-slide">-->
+<!--                  <img src="{% static 'assets/img/portfolio/portfolio-details-2.jpg' %}" alt="">-->
+<!--                </div>-->
+
+<!--                <div class="swiper-slide">-->
+<!--                  <img src="{% static 'assets/img/portfolio/portfolio-details-3.jpg' %}" alt="">-->
+<!--                </div>-->
+
+              </div>
+              <div class="mt-4" >
+                {{service.description | safe}}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+<!--              <h3>Détail</h3>-->
+              <ul>
+<!--                <li><strong>Pour plus de détails </strong></li>-->
+
+
+
+              </ul>
+              <div class="portfolio-info">
+<!--                <a href="" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Read More</button></a>-->
+                <a href="{% url 'contact_index' %}" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn2 animated fadeInRight">Contactez-nous</button></a>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+{% endblock %}

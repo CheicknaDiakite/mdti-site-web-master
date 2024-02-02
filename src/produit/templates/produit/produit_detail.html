@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                {% for image in list_images %}
+                <div class="swiper-slide">
+                  <img src="{{image.image.url}}" alt="">
+                </div>
+                {% endfor %}
+<!--                <div class="swiper-slide">-->
+<!--                  <img src="{% static 'assets/img/portfolio/portfolio-details-2.jpg' %}" alt="">-->
+<!--                </div>-->
+
+<!--                <div class="swiper-slide">-->
+<!--                  <img src="{% static 'assets/img/portfolio/portfolio-details-3.jpg' %}" alt="">-->
+<!--                </div>-->
+
+              </div>
+              <div class="swiper-pagination"></div>
+                 <div class="portfolio-description">
+              <h2>Description Du Produit</h2>
+              <p>
+                {{produit.description | safe }}
+              </p>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Informations</h3>
+              <ul>
+                <li><strong>Nom</strong>: {{produit.nom}}</li>
+                <li><strong>Prix</strong>: {{produit.prix}} CFA</li>
+<!--                <li><strong>Publier le </strong>: {{produit.create_at}}</li>-->
+                <li><strong>Categorie</strong>: <a href="{% url 'produit_index_par_categorie' produit.categorie.slug %}">{{produit.categorie.nom}}</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Vous voulez cet article ?</h2>
+              <p>
+                <a href="{% url 'produit_commander' produit.slug %}" class="me-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">Commendez ici</button></a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+{% endblock %}
